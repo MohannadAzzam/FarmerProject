@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="cart">السلة</string>
+    <string name="farmer_home">الرئيسية</string>
+    <string name="farmer_orders">الطلبات</string>
+    <string name="farmer_location">الموقع</string>
+    <string name="farmer_settings">الإعدادات</string>
+    <string name="search">البحث</string>
+    <string name="farmer_dashboard">الإحصائيات</string>
+    <string name="clickOnImage">اضغط على الصورة</string>
+</resources>
