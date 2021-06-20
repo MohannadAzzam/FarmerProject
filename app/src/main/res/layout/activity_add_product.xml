@@ -97,6 +97,36 @@
                     android:textSize="@dimen/_18ssp" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:layout_width="match_parent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:endIconMode="dropdown_menu"
+                android:hint="@string/ProductType">
+                <AutoCompleteTextView
+                    android:id="@+id/addproduct_et_productType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#fff"
+                    android:fontFamily="@font/jf"
+                    android:inputType="text"
+                    android:textSize="@dimen/_18ssp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+<!--           <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:id="@+id/textInputLayout_gender"-->
+<!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:hint="نوع المنتج"-->
+<!--                app:endIconMode="dropdown_menu">-->
+<!--            <AutoCompleteTextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content" />-->
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
+
             <Button
                 android:id="@+id/addProduct_add"
                 android:layout_width="@dimen/_200sdp"

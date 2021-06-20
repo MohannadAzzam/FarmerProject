@@ -20,11 +20,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.farmerproject.R;
+import com.example.farmerproject.adapters.MyTab;
 import com.example.farmerproject.adapters.PageAdapter;
-import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
-
-import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -46,9 +44,9 @@ public class OrderFragment extends Fragment {
     private SwipeRefreshLayout swipeRefreshLayout;
 
     private TabLayout tablayout;
-    private TabItem itending;
-    private TabItem itprog;
-    private TabItem itnew;
+//    private TabItem itending;
+//    private TabItem itprog;
+//    private TabItem itnew;
 
     ViewPager viewpager;
 
@@ -87,23 +85,32 @@ public class OrderFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v =  inflater.inflate(R.layout.fragment_order, container, false);
+        View v = inflater.inflate(R.layout.fragment_order, container, false);
         setHasOptionsMenu(true);
 //        orderRecycler = v.findViewById(R.id.order_fragment_rv);
         swipeRefreshLayout = v.findViewById(R.id.order_swipeToRefresh);
 
         tablayout = v.findViewById(R.id.taplayoute);
-        itending = v.findViewById(R.id.itending);
-        itprog = v.findViewById(R.id.itprog);
-        itnew = v.findViewById(R.id.itnew);
+        //itending = v.findViewById(R.id.itending);
+        //itprog = v.findViewById(R.id.itprog);
+        //itnew = v.findViewById(R.id.itnew);
         viewpager = v.findViewById(R.id.viewpager);
+
+        tablayout.setupWithViewPager(viewpager);
+
+        PageAdapter adapter = new PageAdapter(getActivity().getSupportFragmentManager());
+        adapter.addTab(new MyTab("منتهية", EndedProductFragment.newInstance("1", "1")));
+        adapter.addTab(new MyTab("قيد التنفيذ", ProgProductFragment.newInstance("2", "2")));
+        adapter.addTab(new MyTab("جديدة", NewProductFragment.newInstance("3", "3")));
+
+        viewpager.setAdapter(adapter);
 
         return v;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        PageAdapter pageAdapter =new PageAdapter(myContext.getSupportFragmentManager(),tablayout.getTabCount());
+        /*PageAdapter pageAdapter =new PageAdapter(myContext.getSupportFragmentManager(),tablayout.getTabCount());
         viewpager.setAdapter(pageAdapter);
         tablayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -120,7 +127,9 @@ public class OrderFragment extends Fragment {
             public void onTabReselected(TabLayout.Tab tab) {
 
             }
-        });
+        });*/
+
+
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -130,12 +139,12 @@ public class OrderFragment extends Fragment {
             }
         });
         super.onViewCreated(view, savedInstanceState);
-        }
+    }
 
 
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        inflater.inflate(R.menu.search_menu,menu);
+        inflater.inflate(R.menu.search_menu, menu);
         SearchView searchView = (SearchView) menu.findItem(R.id.main_search).getActionView();
         searchView.setSubmitButtonEnabled(true);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -144,6 +153,7 @@ public class OrderFragment extends Fragment {
                 //when click ok searching....
                 return false;
             }
+
             @Override
             public boolean onQueryTextChange(String newText) {
                 //when typing searching...
@@ -158,6 +168,7 @@ public class OrderFragment extends Fragment {
             }
         });
     }
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         return super.onOptionsItemSelected(item);

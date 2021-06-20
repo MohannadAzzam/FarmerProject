@@ -13,4 +13,5 @@
     <string name="productPrice">سعر المنتج</string>
     <string name="productDesc">وصف المنتج</string>
     <string name="Addproduct">أضف المنتج</string>
+    <string name="ProductType">نوع المنتج</string>
 </resources>

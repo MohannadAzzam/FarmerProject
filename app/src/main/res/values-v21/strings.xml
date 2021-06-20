@@ -8,4 +8,5 @@
     <string name="search">البحث</string>
     <string name="farmer_dashboard">الإحصائيات</string>
     <string name="clickOnImage">اضغط على الصورة</string>
+    <string name="ProductType">نوع المنتج</string>
 </resources>
