@@ -15,15 +15,18 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/taplayoute"
             android:layout_width="match_parent"
-            android:theme="@style/bottom_nav_theme"
             android:layout_height="wrap_content"
+            android:background="@color/purple_500"
+            android:theme="@style/bottom_nav_theme"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:tabMode="fixed" />
+            app:tabIndicatorColor="@color/white"
+            app:tabMode="fixed"
+            app:tabTextColor="@color/white" />
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewpager"
@@ -32,7 +35,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/taplayoute" />
+            app:layout_constraintTop_toBottomOf="@+id/taplayoute" >
+
+        </androidx.viewpager.widget.ViewPager>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!--    <androidx.recyclerview.widget.RecyclerView-->
